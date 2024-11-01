@@ -49,7 +49,7 @@ def test_twitch_search_streamer(driver, search_term):
         except Exception as e:
             print("Error checking element:", e)
 
-    # Optional: Click "Start Watching" if present
+    # Step 7: Click "Start Watching" if present
     try:
         start_watching_buttons = driver.find_elements(By.XPATH, '//*[contains(text(), "Start Watching")]')
         if start_watching_buttons:
@@ -59,10 +59,8 @@ def test_twitch_search_streamer(driver, search_term):
     except Exception as e:
         print("Error checking element:", e)
 
-    # Step 7: Wait until the page is fully loaded (in our case, we'll wait for the LIVE logo to appear)
+    # Step 8: Wait until the page is fully loaded (in our case, we'll wait for the LIVE logo to appear)
     wait_for_element_with_text(driver, 'LIVE')
 
-    # Step 8: Take screenshot after page loads
+    # Step 9: Take screenshot after page loads
     driver.save_screenshot("streamer_page.png")
-
-# test_twitch_search_streamer(setup_driver(), "StarCraft II")
